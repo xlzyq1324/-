@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<div>{$username}欢迎进入</div>
+<a href="{:url('Index/do_excel')}">导出</a><br /><a href="{:url('Index/ex')}">导入</a>
+<form action="{:url('Index/reg')}" method="post" enctype="multipart/form-data">
+    <label>邮箱：</label>
+    <input type="email" name="email" value=""/><br/>
+    <label>姓名：</label>
+    <input type="text" name="username" value=""/><br/>
+    选择文件：
+    <INPUT type="file" name="files"><br/>
+    <input type="submit" name="sub" value="注册"/>
+</form>
+<table border="1">
+    <tr>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>生日</td>
+        <td>头像</td>
+    </tr>
+    {foreach item="info" name="$find.data"}
+    <tr>
+        <td>{$info.username}</td>
+        <td>{$info.sex}</td>
+        <td>{$info.birthday}</td>
+        <td><img src="{$info.photo}"></td>
+    </tr>
+    {/foreach}
+</table>
+看一下，分页加载的文件，分页样式修改在核心类库里
+thinkphp/library/think/paginator/driver/Bootstrap.php
+去里面修改即可
+<div>
+
+    <div class="am-fr">
+        {$page}
+    </div>
+    <div>
+        共{$find.total}条，
+        当前在第{$find.current_page}页
+    </div>
+
+</div>
+</body>
+</html>
