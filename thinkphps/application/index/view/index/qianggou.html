@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抢购</title>
+</head>
+<body>
+<table border="1" border-color="#f000" height="200px" width="400px">
+
+    <tr>
+        <td>类型</td>
+        <td>数量</td><td>操作</td>
+    </tr>
+    {foreach item="datas" name="datas"}
+    <tr>
+        <td>{$datas.typename}</td>
+        <td>{$datas.sumber}</td>
+        <td><a href="/index.php/index/index/qgadd/id/{$datas.Id}">抢购</a></td>
+    </tr>
+    {/foreach}
+</table>
+</body>
+</html>
